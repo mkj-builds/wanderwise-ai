@@ -1,0 +1,5 @@
+{
+  "name": "Trip Suggester",
+  "description": "An app to suggest tours based on user preferences and budget, with options to explore more hotels in a city.",
+  "requestFramePermissions": []
+}

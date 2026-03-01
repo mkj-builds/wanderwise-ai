@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  
+  --color-luxury-50: #fdfcfb;
+  --color-luxury-100: #f7f3f0;
+  --color-luxury-200: #eee5de;
+  --color-luxury-300: #dccbc0;
+  --color-luxury-400: #c5a894;
+  --color-luxury-500: #b38b71;
+  --color-luxury-600: #9e735a;
+  --color-luxury-700: #845f4b;
+  --color-luxury-800: #6d4f3f;
+  --color-luxury-900: #5a4235;
+  
+  --color-accent-gold: #c5a059;
+  --color-deep-navy: #1a2238;
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-50 text-deep-navy font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl shadow-luxury-200/50;
+  }
+  
+  .luxury-gradient {
+    background: linear-gradient(135deg, var(--color-deep-navy) 0%, #2d3a5d 100%);
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+  
+  body {
+    background: white !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-container {
+    width: 100% !important;
+    max-width: 450px !important; /* Mobile-like width for PDF */
+    margin: 0 auto !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .print-hero {
+    height: 300px !important;
+    border-radius: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .print-content {
+    column-count: 1 !important;
+    font-size: 14px !important;
+  }
+
+  .glass-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid #eee !important;
+    padding: 20px !important;
+    border-radius: 1.5rem !important;
+  }
+
+  header, footer {
+    display: none !important;
+  }
+}
+
